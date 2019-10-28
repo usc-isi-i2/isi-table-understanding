@@ -1,0 +1,12 @@
+# Classes
+
+cell_classifier:
+  class: cell_classifier.example_cell_classifier.ExampleCellClassifier
+block_extractor:
+  class: block_extractor.example_block_extractor.ExampleBlockExtractor
+layout_detector:
+  class: layout_detector.example_layout_detector.ExampleLayoutDetector
+
+# Settings
+colorize: true
+output_dataframe: false
