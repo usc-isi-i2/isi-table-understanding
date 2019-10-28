@@ -1,4 +1,4 @@
-from dataframe_extractor.dataframe_extractor import DataFrameExtractor
+from util.dataframe_extractor import DataFrameExtractor
 from util.block_colorizer import BlockColorizer
 from configurator.configurator import Configurator
 from annotator.yaml_annotator import YAMLAnnotator
