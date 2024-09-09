@@ -1,0 +1,20 @@
+{
+  "blocks": {
+    "1": "B9:H9-global_attribute",
+    "2": "A11:I11-attribute",
+    "3": "A12:B48-attribute",
+    "4": "C12:J49-value"
+  },
+  "edges": {
+    "1": [
+      "global_attribute:4"
+    ],
+    "2": [
+      "header:3",
+      "attribute:4"
+      ],
+    "3": [
+      "attribute:4"
+      ]
+  }
+}

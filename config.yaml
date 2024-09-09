@@ -1,0 +1,5 @@
+crf:
+  cell_classifier_model_file: cell_classifier_crf/crf_model.pkl
+  layout_detector_model_file: layout_detector/crf/model.pkl
+tests:
+  test1: tests/data/test.csv

@@ -1,0 +1,9 @@
+Definition: If a table is put in row form, where each row is an instance composed of value + attributes
+
+Global Metadata: Is the same for each row
+
+Attributes: Set of features required to uniquely index available data
+
+Values: Actual data
+
+Header: Definitional label for a set of attributes (column)

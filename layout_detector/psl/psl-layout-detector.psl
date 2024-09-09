@@ -1,0 +1,8 @@
+10.0: ADJACENT(T, X, Y) & BLOCKTYPE(T, X, C) & BLOCKTYPE(T, Y, C) >> LAYOUT(T, X, Y, "empty") ^2
+1.0: HORIZONTAL(T, X, Y) & BLOCKTYPE(T, X, "attribute") & BLOCKTYPE(T, Y, "data") >> LAYOUT(T, X, Y, "attribute") ^2
+1.0: VERTICAL(T, X, Y) & BLOCKTYPE(T, X, "header") & BLOCKTYPE(T, Y, "data") >> LAYOUT(T, X, Y, "header") ^2
+1.0: BLOCKTYPE(T, X, "metadata") & BLOCKTYPE(T, Y, "data") >> LAYOUT(T, X, Y, "global_attribute") ^2
+
+1.0: LAYOUT(T, X, Y, C) & (C != "empty") >> LAYOUT(T, Y, X, "empty") ^2
+0.5: !LAYOUT(T, X, Y, "global_attribute") ^2
+LAYOUT(T, X, Y, +C) = 1 .

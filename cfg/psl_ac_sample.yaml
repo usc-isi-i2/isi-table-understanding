@@ -1,0 +1,36 @@
+# Classes
+
+cell_classifier:
+  class: cell_classifier.psl_cell_classifier.PSLCellClassifier
+  model_file: ./data/psl/cell_classify.model
+  rule_file: ./cell_classifier/psl/psl-cell-classifier.psl
+  predicate_file: ./cell_classifier/psl/psl-cell-classifier-predicates.txt
+  eval_path: ./data/psl/cell_classifier/eval/
+  cell_classifier_name: psl-cell-classifier
+block_extractor:
+  class: block_extractor.block_extractor_psl_v2.BlockExtractorPSLV2
+  model_file: ./data/psl/block_extract.model
+  rule_file: ./block_extractor/psl/psl-block-extractor-v2.psl
+  predicate_file: ./block_extractor/psl/psl-block-extractor-v2-predicates.txt
+  eval_path: ./data/psl/block_extractor/eval/
+  block_extractor_name: psl-block-extractor
+  metric_path: ./data/psl/nca.pickle
+  weights_path: ./data/psl/sample_weights.pickle
+layout_detector:
+  class: layout_detector.layout_detector_psl.LayoutDetectorPSL
+  model_file: ./data/psl/layout_detect.model
+  rule_file: ./layout_detector/psl/psl-layout-detector.psl
+  predicate_file: ./layout_detector/psl/psl-layout-detector-predicates.txt
+  eval_path: ./data/psl/layout_detector/eval/
+  layout_detector_name: psl-layout-detector
+
+colorize: true
+output_dataframe: true
+seed: 0
+ce_source: ./TabularCellTypeClassification/code/src/
+ce_model: ./TabularCellTypeClassification/deploy/sample_models/ce.model
+fe_model: ./TabularCellTypeClassification/deploy/sample_models/fe.model
+w2v: ./glove.840B.300d.txt
+vocab_size: 1000
+infersent_model: ./infersent1.pkl
+infersent_source: ./

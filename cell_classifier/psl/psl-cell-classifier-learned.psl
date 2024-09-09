@@ -1,0 +1,13 @@
+19.995793: ISEMPTY(T, X, Y) >> CELLTYPE(T, X, Y, "empty") ^2
+20.023939: ISYEAR(T, X, Y) >> CELLTYPE(T, X, Y, "datetime") ^2
+9.430490: ISDATE(T, X, Y) >> CELLTYPE(T, X, Y, "datetime") ^2
+9.621842: ISYMDDATE(T, X, Y) >> CELLTYPE(T, X, Y, "datetime") ^2
+9.360569: FIRSTALPHA(T, X, Y) & HASNUM(T, X, Y) & ONEWORD(T, X, Y) >> CELLTYPE(T, X, Y, "nominal") ^2
+9.941660: ISNUMBER(T, X, Y) >> CELLTYPE(T, X, Y, "cardinal") ^2
+9.998373: HASALPHA(T, X, Y) >> !CELLTYPE(T, X, Y, "cardinal") ^2
+9.997619: DATERANGE(T, X, Y) >> CELLTYPE(T, X, Y, "datetime") ^2
+19.755046: !ONEWORD(T, X, Y) & HASSPECIAL(T, X, Y) >> CELLTYPE(T, X, Y, "string") ^2
+1.000000: !CELLTYPE(T, X, Y, "event") ^2
+0.980410: !CELLTYPE(T, X, Y, "person") ^2
+0.999929: !CELLTYPE(T, X, Y, "ordinal") ^2
+CELLTYPE(T, X, Y, +C) = 1 .

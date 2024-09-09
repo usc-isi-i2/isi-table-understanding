@@ -1,0 +1,24 @@
+{
+  "blocks": {
+    "1": "A1:C1-header",
+    "2": "A2:A200-attribute",
+    "3": "B2:C200-attribute",
+    "4": "D1:AC1-attribute",
+    "5": "D2:AC200-value"
+  },
+  "edges": {
+    "1": [
+      "header:2",
+      "header:3"
+      ],
+    "2": [
+      "attribute:5"
+      ],
+    "3": [
+      "attribute:5"
+      ],
+    "4": [
+      "attribute:5"
+    ]
+  }
+}

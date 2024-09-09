@@ -1,0 +1,27 @@
+{
+  "blocks": {
+    "1": "A4:A4-header",
+    "2": "B4:S4-attribute",
+    "3": "T3:U4-attribute",
+    "4": "A5:A44-attribute",
+    "5": "B5:U44-value",
+    "6": "A1:A1-global_attribute"
+  },
+  "edges": {
+    "1": [
+      "header:4"
+      ],
+    "2": [
+      "attribute:5"
+      ],
+    "3": [
+      "attribute:5"
+      ],
+    "4": [
+      "attribute:5"
+      ],
+    "6": [
+      "global_attribute:5"
+      ]
+  }
+}

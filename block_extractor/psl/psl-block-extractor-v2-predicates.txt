@@ -1,0 +1,8 @@
+firstrow	3	closed
+singlecolbefore	2	closed
+singlecolafter	2	closed
+neighbor	2	closed
+cell2vec	6	closed
+validblock	5	closed
+datatype	6	closed
+label	6	open

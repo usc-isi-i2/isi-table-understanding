@@ -1,0 +1,39 @@
+// cell2vec
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & CELL2VEC(T, X1, Y1, X2, Y2, C) >> LABEL(T, X1, Y1, X2, Y2, C) ^2
+
+//temp
+//1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & DATATYPE(T, X1, Y1, X2, Y2, "cardinal") >> LABEL(T, X1, Y1, X2, Y2, "data") ^2
+//1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & DATATYPE(T, X1, Y1, X2, Y2, "datetime") >> LABEL(T, X1, Y1, X2, Y2, "attributes") ^2
+//1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & DATATYPE(T, X1, Y1, X2, Y2, "datetime") >> LABEL(T, X1, Y1, X2, Y2, "header") ^2
+//1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & DATATYPE(T, X1, Y1, X2, Y2, "datetime") >> !LABEL(T, X1, Y1, X2, Y2, "data") ^2
+
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & SINGLECOLBEFORE(T, X1) & SINGLECOLBEFORE(T, X2) >> LABEL(T, X1, Y1, X2, Y2, "metadata") ^2
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & SINGLECOLAFTER(T, X1) & SINGLECOLAFTER(T, X2) >> LABEL(T, X1, Y1, X2, Y2, "metadata") ^2
+
+1.0: VALIDBLOCK(T, X1, Y1, X1, Y2) & FIRSTROW(T, X1, Y2) >> LABEL(T, X1, Y1, X1, Y2, "header") ^2
+
+// same with neighbors
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & LABEL(T, X3, Y1, X4, Y2, C) & LABEL(T, X5, Y1, X6, Y2, C) & NEIGHBOR(X4, X1) & NEIGHBOR(X2, X5) >> LABEL(T, X1, Y1, X2, Y2, C) ^2
+// new
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & LABEL(T, X1, Y3, X2, Y4, C) & LABEL(T, X1, Y5, X2, Y6, C) & NEIGHBOR(Y4, Y1) & NEIGHBOR(Y2, Y5) >> LABEL(T, X1, Y1, X2, Y2, C) ^2
+
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & LABEL(T, X3, Y3, X4, Y4, C) & LABEL(T, X5, Y5, X6, Y6, C) & NEIGHBOR(X4, X1) & NEIGHBOR(Y4, Y1) & NEIGHBOR(X2, X5) & NEIGHBOR(Y2, Y5) >> LABEL(T, X1, Y1, X2, Y2, C) ^2
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & LABEL(T, X3, Y3, X4, Y4, C) & LABEL(T, X5, Y5, X6, Y6, C) & NEIGHBOR(X2, X3) & NEIGHBOR(Y4, Y1) & NEIGHBOR(X6, X1) & NEIGHBOR(Y2, Y5) >> LABEL(T, X1, Y1, X2, Y2, C) ^2
+
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & LABEL(T, X1, Y3, X2, Y4, C) & LABEL(T, X5, Y1, X6, Y2, C) & NEIGHBOR(Y4, Y1) & NEIGHBOR(X2, X5) >> LABEL(T, X1, Y1, X2, Y2, C) ^2
+
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & LABEL(T, X1, Y3, X2, Y4, C) & LABEL(T, X5, Y1, X6, Y2, C) & NEIGHBOR(Y4, Y1) & NEIGHBOR(X6, X1) >> LABEL(T, X1, Y1, X2, Y2, C) ^2
+
+
+// priors
+0.1: VALIDBLOCK(T, X1, Y1, X2, Y2) >> !LABEL(T, X1, Y1, X2, Y2, "metadata") ^2
+0.1: VALIDBLOCK(T, X1, Y1, X2, Y2) >> !LABEL(T, X1, Y1, X2, Y2, "data") ^2
+0.1: VALIDBLOCK(T, X1, Y1, X2, Y2) >> !LABEL(T, X1, Y1, X2, Y2, "header") ^2
+0.1: VALIDBLOCK(T, X1, Y1, X2, Y2) >> !LABEL(T, X1, Y1, X2, Y2, "attributes") ^2
+
+LABEL(T, X1, Y1, X2, Y2, +C) = 1 .
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & !DATATYPE(T, X1, Y1, X2, Y2, "empty") & !DATATYPE(T, X1, Y3, X2, Y4, "empty") & LABEL(T, X1, Y3, X2, Y4, "metadata") & (Y1 != Y3) >> !LABEL(T, X1, Y1, X2, Y2, "data") ^2
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & !DATATYPE(T, X1, Y1, X2, Y2, "empty") & !DATATYPE(T, X1, Y3, X2, Y4, "empty") & LABEL(T, X1, Y3, X2, Y4, "metadata") & (Y1 != Y3) >> !LABEL(T, X1, Y1, X2, Y2, "attributes") ^2
+1.0: VALIDBLOCK(T, X1, Y1, X2, Y2) & !DATATYPE(T, X1, Y3, X2, Y4, "empty") & LABEL(T, X1, Y3, X2, Y4, "header") & (Y1 != Y3) >> LABEL(T, X1, Y1, X2, Y2, "header") ^2
+
+1.0: DATATYPE(T, X1, Y1, X2, Y2, C1) & DATATYPE(T, X3, Y1, X4, Y2, C1) & DATATYPE(T, X5, Y1, X6, Y2, C2) & NEIGHBOR(X4, X1) & NEIGHBOR(X2, X5) & (C1 != C2) & (C1 != "empty") & (C2 != "empty") & LABEL(T, X3, Y1, X4, Y2, "header") >> LABEL(T, X1, Y1, X2, Y2, "header") ^2

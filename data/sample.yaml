@@ -1,0 +1,36 @@
+layout:
+  comments:
+    location: 218..218:0..0
+    semantic_type: schema:unknown
+  header:
+    location: 2..3:0..0
+    semantic_type: schema:unknown
+  meta_x:
+    location: 2..3:1..62
+    semantic_type: schema:unknown
+  meta_y:
+    location: 4..216:0..0
+    semantic_type: schema:unknown
+  title:
+    location: 0..0:0..0
+    semantic_type: schema:unknown
+  value:
+    location: 4..216:1..62
+    semantic_type: schema:unknown
+ontology_prefixes:
+  schema: http://schema.org/
+relationships:
+  mappings:
+  - value: title <-> value
+    type: dimension_mapping
+  - value: meta_x:1 <-> value:1
+    type: dimension_mapping
+  - value: meta_y:0 <-> value:0
+    type: dimension_mapping
+  - value: header:1 <-> meta_y:1
+    type: dimension_mapping
+  - value: comments <-> value
+    type: dimension_mapping
+  semantic_relations: {}
+transformation: {}
+version: '1'

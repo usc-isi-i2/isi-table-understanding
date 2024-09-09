@@ -1,0 +1,60 @@
+{
+  "blocks": {
+    "1": "A9:A9-header",
+    "2": "C9:D9-attribute",
+    "3": "E9:J9-attribute",
+    "4": "K9:M9-attribute",
+    "5": "N9:V9-attribute",
+    "6": "W9:AR9-attribute",
+    "7": "A11:A12-header",
+    "8": "C10:AR12-attribute",
+    "9": "A13:A13-header",
+    "10": "B13:B13-header",
+    "11": "C13:AR13-attribute",
+    "12": "A16:B50-attribute",
+    "13": "C16:AR50-value"
+  },
+  "edges": {
+    "1": [
+      "header:2",
+      "header:3",
+      "header:4",
+      "header:5",
+      "header:6"
+    ],
+    "2": [
+      "supercategory:8"
+    ],
+    "3": [
+      "supercategory:8"
+    ],
+    "4": [
+      "supercategory:8"
+    ],
+    "5": [
+      "supercategory:8"
+    ],
+    "6": [
+      "supercategory:8"
+    ],
+    "7": [
+      "header:8"
+    ],
+    "9": [
+      "header:12"
+    ],
+    "10": [
+      "header:11",
+      "header:12"
+    ],
+    "12": [
+      "attribute:13"
+    ],
+    "8": [
+      "attribute:13"
+    ],
+    "11": [
+      "attribute:13"
+    ]
+  }
+}

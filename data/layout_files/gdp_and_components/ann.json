@@ -1,0 +1,23 @@
+{
+  "blocks": {
+    "1": "B7:C7-header",
+    "2": "D7:Z7-attribute",
+    "3": "B8:C190-attribute",
+    "4": "D8:Z190-value",
+    "5": "B2:B5-global_attribute"
+  },
+  "edges": {
+    "1": [
+      "header:3"
+      ],
+    "2": [
+      "attribute:4"
+      ],
+    "3": [
+      "attribute:4"
+      ],
+    "5": [
+      "global_attribute:4"
+      ]
+  }
+}

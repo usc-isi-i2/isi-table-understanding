@@ -1,0 +1,19 @@
+1.0: ADJACENT(T, X, Y) & BLOCKTYPE(T, X, "data") & BLOCKTYPE(T, Y, "data") >> LAYOUT(T, X, Y, "empty") ^2
+1.0: ADJACENT(T, X, Y) & BLOCKTYPE(T, X, "metadata") & BLOCKTYPE(T, Y, "metadata") >> LAYOUT(T, X, Y, "empty") ^2
+
+
+1.0: HORIZONTAL(T, X, Y) & BLOCKTYPE(T, X, "attributes") & BLOCKTYPE(T, Y, "data") >> LAYOUT(T, X, Y, "attribute") ^2
+1.0: VERTICAL(T, X, Y) & BLOCKTYPE(T, X, "header") & BLOCKTYPE(T, Y, "data") & ISABOVE(T, X, Y) >> LAYOUT(T, X, Y, "header") ^2
+1.0: BLOCKTYPE(T, X, "metadata") & BLOCKTYPE(T, Y, C) & (C != "empty") & (C != "metadata") & (X != Y) >> LAYOUT(T, X, Y, "global_attribute") ^2
+1.0: BLOCKTYPE(T, X, "header") & BLOCKTYPE(T, Y, "attributes") >> LAYOUT(T, X, Y, "empty") ^2
+1.0: BLOCKTYPE(T, X, "header") & BLOCKTYPE(T, Y, "header") & ADJACENT(T, X, Y) & ISABOVE(T, X, Y) >> LAYOUT(T, X, Y, "supercategory") ^2
+1.0: BLOCKTYPE(T, X, "attributes") & BLOCKTYPE(T, Y, "attributes") & ADJACENT(T, X, Y) & ATLEFT(T, X, Y) >> LAYOUT(T, X, Y, "supercategory") ^2
+
+LAYOUT(T, X, Y, C) & (C != "empty") >> LAYOUT(T, Y, X, "empty") .
+
+0.1: !LAYOUT(T, X, Y, "global_attribute") ^2
+0.1: !LAYOUT(T, X, Y, "attribute") ^2
+0.1: !LAYOUT(T, X, Y, "header") ^2
+0.1: !LAYOUT(T, X, Y, "empty") ^2
+0.1: !LAYOUT(T, X, Y, "supercategory") ^2
+LAYOUT(T, X, Y, +C) = 1 .

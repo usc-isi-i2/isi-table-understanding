@@ -1,0 +1,57 @@
+// temp remove
+20.0: ISEMPTY(T, X, Y) >> CELLTYPE(T, X, Y, "empty") ^2
+20.0: ISYEAR(T, X, Y) >> CELLTYPE(T, X, Y, "datetime") ^2
+20.0: ISDATE(T, X, Y) >> CELLTYPE(T, X, Y, "datetime") ^2
+
+//5.0: HASNUM(T, X, Y) & ISUPPER(T, X, Y) & ONEWORD(T, X, Y) >> CELLTYPE(T, X, Y, "nominal") ^2
+
+//10.0: ISNUMBER(T, X, Y) & !ISYEAR(T, X, Y) >> CELLTYPE(T, X, Y, "cardinal") ^2
+
+//10.0: ISUPPER(T, X, Y) & !CONTAINLOC(T, X, Y) & !HASNUM(T, X, Y) >> CELLTYPE(T, X, Y, "string") ^2
+
+10.0: C2VLAB(T, X, Y, C) >> CELLTYPE(T, X, Y, C) ^2
+
+//5.0: NEIGHBOR(X1, X2) & NEIGHBOR(X2, X3) & CELLTYPE(T, X1, Y, C) & CELLTYPE(T, X3, Y, C) >> CELLTYPE(T, X2, Y, C) ^2
+//5.0: NEIGHBOR(Y1, Y2) & NEIGHBOR(Y2, Y3) & CELLTYPE(T, X, Y1, C) & CELLTYPE(T, X, Y3, C) >> CELLTYPE(T, X, Y2, C) ^2
+
+ISNUMBER(T, X, Y) >> !CELLTYPE(T, X, Y, "string") .
+ISNUMBER(T, X, Y) >> !CELLTYPE(T, X, Y, "location") .
+ISNUMBER(T, X, Y) >> !CELLTYPE(T, X, Y, "organization") .
+//ISNUMBER(T, X, Y) >> !CELLTYPE(T, X, Y, "event") .
+ISNUMBER(T, X, Y) >> !CELLTYPE(T, X, Y, "person") .
+ISNUMBER(T, X, Y) >> !CELLTYPE(T, X, Y, "empty") .
+
+ISNUMBER(T, X, Y) & !ISINT(T, X, Y) >> CELLTYPE(T, X, Y, "cardinal") .
+ISNUMBER(T, X, Y) & !ISYEAR(T, X, Y) >> !CELLTYPE(T, X, Y, "datetime") .
+
+HASNUM(T, X, Y) & !HASALPHA(T, X, Y) >> !CELLTYPE(T, X, Y, "organization") .
+HASNUM(T, X, Y) & !HASALPHA(T, X, Y) >> !CELLTYPE(T, X, Y, "person") .
+//HASNUM(T, X, Y) & !HASALPHA(T, X, Y) >> !CELLTYPE(T, X, Y, "event") .
+HASNUM(T, X, Y) & !HASALPHA(T, X, Y) >> !CELLTYPE(T, X, Y, "location") .
+
+HASALPHA(T, X, Y) & !HASNUM(T, X, Y) >> !CELLTYPE(T, X, Y, "cardinal") .
+HASALPHA(T, X, Y) & !HASNUM(T, X, Y) >> !CELLTYPE(T, X, Y, "nominal") .
+HASALPHA(T, X, Y) & !HASNUM(T, X, Y) >> !CELLTYPE(T, X, Y, "ordinal") .
+
+HASALPHA(T, X, Y) & !HASNUM(T, X, Y) & !ISDATE(T, X, Y) >> !CELLTYPE(T, X, Y, "datetime") .
+
+MOREWORDS(T, X, Y) >> !CELLTYPE(T, X, Y, "cardinal") .
+MOREWORDS(T, X, Y) >> !CELLTYPE(T, X, Y, "nominal") .
+MOREWORDS(T, X, Y) >> !CELLTYPE(T, X, Y, "ordinal") .
+MOREWORDS(T, X, Y) >> !CELLTYPE(T, X, Y, "datatime") .
+MOREWORDS(T, X, Y) >> !CELLTYPE(T, X, Y, "empty") .
+
+ONEWORD(T, X, Y) & HASNUM(T, X, Y) & ISUPPER(T, X, Y) >> !CELLTYPE(T, X, Y, "location") .
+ONEWORD(T, X, Y) & HASNUM(T, X, Y) & ISUPPER(T, X, Y) >> !CELLTYPE(T, X, Y, "organization") .
+ONEWORD(T, X, Y) & HASNUM(T, X, Y) & ISUPPER(T, X, Y) >> !CELLTYPE(T, X, Y, "person") .
+//ONEWORD(T, X, Y) & HASNUM(T, X, Y) & ISUPPER(T, X, Y) >> !CELLTYPE(T, X, Y, "event") .
+//ONEWORD(T, X, Y) & HASNUM(T, X, Y) & ISUPPER(T, X, Y) >> !CELLTYPE(T, X, Y, "cardinal") .
+
+ONEWORD(T, X, Y) & !HASNUM(T, X, Y) >> !CELLTYPE(T, X, Y, "cardinal") .
+ONEWORD(T, X, Y) & !HASNUM(T, X, Y) >> !CELLTYPE(T, X, Y, "nominal") .
+ONEWORD(T, X, Y) & !HASNUM(T, X, Y) >> !CELLTYPE(T, X, Y, "ordinal") .
+
+ONEWORD(T, X, Y) & !ISEMPTY(T, X, Y) & !HASSPECIAL(T, X, Y) >> !CELLTYPE(T, X, Y, "empty") .
+ONEWORD(T, X, Y) & !ISYEAR(T, X, Y) & !ISDATE(T, X, Y) >> !CELLTYPE(T, X, Y, "datetime") .
+
+CELLTYPE(T, X, Y, +C) = 1 .

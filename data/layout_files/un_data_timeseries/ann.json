@@ -1,0 +1,11 @@
+{
+  "blocks": {
+    "1": "A1:I1-header",
+    "2": "A2:I100-value"
+  },
+  "edges": {
+    "1": [
+      "header:2"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "blocks": {
+    "1": "C8:D8-attribute",
+    "2": "B10:B79-attribute",
+    "3": "C10:D79-value",
+    "4": "B5:G5-global_attribute",
+    "5": "B1:G3-global_attribute"
+  },
+  "edges": {
+    "1": [
+      "header:3"
+      ],
+    "2": [
+      "attribute:3"
+      ],
+    "4": [
+      "global_attribute:3"
+      ],
+    "5": [
+      "global_attribute:3"
+      ]
+  }
+}

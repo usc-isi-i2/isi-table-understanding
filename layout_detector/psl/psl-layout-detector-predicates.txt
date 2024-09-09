@@ -1,0 +1,10 @@
+topmost	2	closed
+leftmost	2	closed
+adjacent	3	closed
+horizontal	3	closed
+vertical	3	closed
+isabove	3	closed
+isbelow	3	closed
+atleft	3	closed
+blocktype	3	closed
+layout	4	open

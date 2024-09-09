@@ -1,0 +1,24 @@
+{
+  "blocks": {
+    "1": "A1:M1-global_attribute",
+    "2": "A2:A2-header",
+    "3": "B2:M2-attribute",
+    "4": "A3:A5987-attribute",
+    "5": "B3:M5987-value"
+  },
+  "edges": {
+    "1": [
+      "global_attribute:5"
+    ],
+    "2": [
+      "header:3",
+      "header:4"
+      ],
+    "3": [
+      "attribute:5"
+      ],
+    "4": [
+      "attribute:5"
+      ]
+  }
+}

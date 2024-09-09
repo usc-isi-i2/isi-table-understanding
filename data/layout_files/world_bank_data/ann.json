@@ -1,0 +1,27 @@
+{
+  "blocks": {
+    "1": "A1:B1-global_attribute",
+    "2": "A3:B3-global_attribute",
+    "3": "A5:D5-header",
+    "4": "E5:BI5-attribute",
+    "5": "A6:D1554-attribute",
+    "6": "E6:BI1554-value"
+  },
+  "edges": {
+    "1": [
+      "global_attribute:6"
+    ],
+    "2": [
+      "global_attribute:6"
+    ],
+    "3": [
+      "header:5"
+    ],
+    "5": [
+      "attribute:6"
+    ],
+    "4": [
+      "attribute:6"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "sheet": 3,
+    "blocks": {
+      "1": "B4:H5-header",
+      "2": "B6:H84-value",
+      "3": "A1:A1-global_attribute"
+    },
+    "edges": {
+      "1": [
+        "header:2"
+      ],
+      "3": [
+        "global_attribute:2"
+      ]
+    }
+  },
+  {
+    "sheet": 4,
+    "blocks": {
+      "1": "A3:BQ4-attribute",
+      "2": "A5:G181-attribute",
+      "3": "H5:BQ181-value"
+    },
+    "edges": {
+      "1": [
+        "header:2",
+        "attribute:3"
+      ],
+      "2": [
+        "attribute:3"
+      ]
+    }
+  },
+  {
+    "sheet": 7,
+    "blocks": {
+      "1": "B3:F4-attribute",
+      "2": "B5:B21-attribute",
+      "3": "C5:F21-value",
+      "4": "B22:B22-global_attribute"
+    },
+    "edges": {
+      "1": [
+        "header:2",
+        "attribute:3"
+      ],
+      "2": [
+        "attribute:3"
+      ],
+      "4": [
+        "global_attribute:3"
+      ]
+    }
+  }
+]

@@ -1,0 +1,14 @@
+# Classes
+
+cell_classifier:
+  class: cell_classifier.crf_cell_classifier.CRFCellClassifier
+block_extractor:
+  class: block_extractor.block_extractor_decision_tree.BlockExtractorDecisionTree
+  threshold: 0.1
+layout_detector:
+  class: layout_detector.crf.crf_layout_detector.CRFLayoutDetector
+
+# Settings
+
+colorize: true
+output_dataframe: true

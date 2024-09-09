@@ -1,0 +1,8 @@
+layout: {}
+ontology_prefixes:
+  schema: http://schema.org/
+relationships:
+  mappings: []
+  semantic_relations: {}
+transformation: {}
+version: '1'
